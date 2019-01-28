@@ -17,3 +17,10 @@ if [[ -f "$sync_folder/update.jpg" ]]; then
   apt install -f
   apt autoremove
 fi
+
+## Restart a service
+for service in $sync_folder/service/*.jpg ; do
+  rm "$service"
+  service_name=`basename "$service" | sed 's/.jpg//g'`
+  service $service_name restart
+done
