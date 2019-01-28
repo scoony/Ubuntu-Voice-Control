@@ -19,6 +19,7 @@ if [[ -f "$sync_folder/update.jpg" ]]; then
 fi
 
 ## Restart a service
+## virer les espaces et les caps
 for service in $sync_folder/service/*.jpg ; do
   rm "$service"
   service_name=`basename "$service" | sed 's/.jpg//g'`
